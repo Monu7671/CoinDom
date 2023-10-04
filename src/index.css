@@ -1,0 +1,737 @@
+/* :root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
+
+
+/* Box sizing rules */
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+  background-color: #fff;
+  border-radius: 5px
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ba04b7;
+  border: 2px solid white;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+  background: ;
+} */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.container {
+  max-width: 80rem;
+  padding-inline: 2em;
+  margin-inline: auto;
+}
+
+.flow>*:where(:not(:first-child)) {
+  margin-top: 2em;
+}
+
+.gradient-text {
+  /* background-image: linear-gradient(90deg, red, blue);
+  background-clip: text !important;
+  color: transparent !important; */
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(25deg, #2600fc, #ff00ea);
+  color: transparent;
+}
+
+body {
+  /* background-image: linear-gradient(180deg,
+      hsl(251deg 83% 16%) 0%,
+      hsl(251deg 80% 15%) 21%,
+      hsl(252deg 78% 14%) 30%,
+      hsl(253deg 76% 13%) 39%,
+      hsl(254deg 75% 12%) 46%,
+      hsl(257deg 74% 11%) 54%,
+      hsl(260deg 73% 10%) 61%,
+      hsl(262deg 73% 9%) 69%,
+      hsl(264deg 72% 8%) 79%,
+      hsl(265deg 71% 7%) 100%); */
+  background-color: #0F051D;
+  color: #F3F2F4;
+  overflow-y: scroll;
+  height: 100vh;
+  overflow-x: auto;
+}
+
+header {
+  background-image: linear-gradient(180deg, hsl(251deg 83% 16%) 0%, hsl(251deg 80% 15%) 21%, hsl(252deg 78% 14%) 30%, hsl(253deg 76% 13%) 39%, hsl(254deg 75% 12%) 46%, hsl(257deg 74% 11%) 54%, hsl(260deg 73% 10%) 61%, hsl(262deg 73% 9%) 69%, hsl(264deg 72% 8%) 79%, hsl(265deg 71% 7%) 100%);
+  width: 100%;
+}
+
+/* 
+===============
+  nav
+=============== 
+*/
+nav {
+  justify-content: space-between;
+  padding-block: 2em;
+  align-items: center;
+}
+
+.sticky-nav {
+  position: fixed;
+  background-color: #0F051D;
+  box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.16);
+  width: 100%;
+  top: 0;
+}
+
+nav a {
+  color: #F3F2F4;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+nav a,
+.nav-icon-cont>* {
+  cursor: pointer;
+}
+
+.site-name {
+  font-size: 1.9rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.page-link-cont,
+.nav-icon-cont {
+  gap: 2em;
+}
+
+.page-links {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: .8px;
+  color: inherit;
+}
+
+.page-links:hover {
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(25deg, #2600fc, #ff00ea);
+  color: transparent;
+}
+
+.nav-menu-btn {
+  display: none;
+}
+
+@media(max-width:745px) {
+  .nav-icon-cont {
+    display: none;
+  }
+
+  .page-link-cont {
+    position: absolute;
+    inset: 0;
+    background-color: #fff;
+    color: black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: transform 250ms ease-in-out;
+  }
+
+  .close {
+    transform: translateX(-100%);
+  }
+
+  .open {
+    transform: translateX(0);
+  }
+
+  .page-links {
+    font-size: 1.8rem;
+  }
+
+  .nav-menu-btn {
+    display: block;
+    background: none;
+    border: none;
+  }
+
+  .nav-menu-cross {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+/*
+============
+  Home
+=============
+ */
+
+.home-title {
+  font-size: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-top: 1em;
+  width: 100%;
+}
+
+@media(min-width:750px) {
+  .home-title {
+    font-size: 5rem;
+  }
+
+}
+
+/*
+=================
+  CHOOSE US
+=================
+*/
+
+.choose-title {
+  font-size: 3rem;
+  margin: 1em 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.choose-box {
+  background-color: hsla(0, 0%, 100%, .05);
+  border: 1px solid hsla(0, 0%, 51%, .25);
+  border-radius: 1rem;
+  padding: 1.5em .75em;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.75em;
+  width: 100%;
+  max-width: 700px;
+  margin-inline: auto;
+  text-align: left;
+  justify-content: center;
+}
+
+
+
+.choose-box-btn {
+  border: none;
+  background: linear-gradient(25deg, #2600fc, #ff00ea);
+  padding: .5em .75em;
+  width: 6rem;
+  border-radius: 1em;
+}
+
+.choose-box-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  margin-bottom: .5em;
+}
+
+.choose-box-para {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.choose-img {
+  width: 45%;
+  margin: 1.5em auto;
+  object-fit: cover;
+}
+
+@media(min-width:750px) {
+  .choose-img {
+    width: 27%;
+  }
+}
+
+/*
+=================
+  market-update
+=================  
+*/
+.coin-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+
+
+.market-update {
+  margin: 3em auto;
+  width: 100%;
+  /* border: 2px solid red; */
+}
+
+/* ::-webkit-scrollbar {
+  width: 120px;
+  height: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ba04b7;
+  border: 1px solid #fff;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fff;
+  border-radius: 5px;
+} */
+
+@media(max-width:1000px) {
+  .market-update {
+    width: 1000px;
+    overflow-x: scroll;
+  }
+
+
+
+}
+
+
+
+.market-title {
+  font-size: 3rem;
+  margin: 0 0 .7em .33em;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+@media(max-width:600px) {
+  .market-title {
+    font-size: 2rem;
+  }
+}
+
+.market-title-sm {
+  font-size: 1.365rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.market-header {
+  /* justify-content: space-between; */
+
+  background: linear-gradient(25deg, #2600fc, #ff00ea);
+  padding: 1em;
+  /* border: 2px solid red; */
+  border-radius: 10px;
+  white-space: nowrap;
+  overflow-x: visible;
+}
+
+.page-selector {
+  border: none;
+  border-radius: 50%;
+  /* padding: 1em 1em; */
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  background-color: #fff;
+}
+
+.page-selector:hover {
+  cursor: pointer;
+}
+
+.current-page {
+  background: linear-gradient(25deg, #2600fc, #ff00ea);
+  color: white;
+}
+
+.page-selector-cont {
+  justify-content: center;
+  gap: 1em;
+  margin: 3em auto;
+}
+
+.coin-data {
+  /* justify-content: space-between; */
+  align-items: center;
+  padding: 1em .5em;
+  border-bottom: 1px solid white;
+}
+
+.coin-data:hover {
+  background: #200840;
+  cursor: pointer;
+}
+
+.coin-pre {
+  align-items: center;
+  gap: 1em;
+}
+
+.coin-name {
+  font-size: 1.1255rem;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.coin-img {
+  height: 4rem;
+  width: 4rem;
+}
+
+.coin-price {
+  margin-left: 20%;
+}
+
+.coin-change {
+  margin-left: 20%;
+}
+
+.market-cap {
+  margin-left: 15%;
+}
+
+.coin-price,
+.coin-change,
+.market-cap {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: .9px;
+}
+
+.green-change {
+  color: #0ECB81;
+}
+
+.red-change {
+  color: red;
+}
+
+/*
+================
+  JOIN US
+================
+*/
+.join-us {
+  margin: 6em auto;
+  text-align: center;
+}
+
+.join-title {
+  font-size: 6rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.25;
+}
+
+.join-para {
+  font-size: 1.4rem;
+  margin: 1em 0;
+}
+
+.join-link {
+  text-decoration: none;
+  color: white;
+  background-image: linear-gradient(25deg, #2600fc, #ff00ea);
+  padding: .75em 1.5em;
+  border-radius: 10rem;
+  font-size: 1.5rem;
+  display: inline-block;
+  margin: 1em 0;
+  font-weight: 500;
+}
+
+.join-link:hover {
+  cursor: pointer;
+}
+
+@media(max-width:500px) {
+  .join-title {
+    font-size: 3rem;
+  }
+}
+
+/*
+=============
+  footer
+=============  
+*/
+footer {
+  margin: .5em 0;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('./images/footer-bg.png');
+  background-position: 50%;
+  background-size: cover;
+  height: 20rem;
+  justify-content: center;
+  background-repeat: no-repeat;
+}
+
+footer>*:hover {
+  cursor: pointer;
+}
+
+.footer-icons,
+.footer-text-cont {
+  gap: 2em;
+}
+
+.footer-text-cont {
+  margin: 2em 0;
+}
+
+.footer-text {
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+/*
+===============
+  coin detail
+=============== 
+*/
+
+.coin-intro {
+  flex-direction: column;
+  align-items: center;
+  margin: 2em 0;
+  border-bottom: 2px solid #f3f2f4;
+  padding: 1.5em 0;
+}
+
+
+.coin-intro>p {
+  margin-top: 1.5em;
+}
+
+.coin-detail-img {
+  width: 220px;
+  height: 220px;
+}
+
+.coin-detail {
+  text-align: center;
+}
+
+.coin-detail-top {
+  gap: 2em;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2em 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.coin-detail-name {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.coin-rank {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.coin-detail-info {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.coin-detail-cont {
+  background-image: linear-gradient(180deg, hsl(251deg 83% 16%) 0%, hsl(251deg 80% 15%) 21%, hsl(252deg 78% 14%) 30%, hsl(253deg 76% 13%) 39%, hsl(254deg 75% 12%) 46%, hsl(257deg 74% 11%) 54%, hsl(260deg 73% 10%) 61%, hsl(262deg 73% 9%) 69%, hsl(264deg 72% 8%) 79%, hsl(265deg 71% 7%) 100%);
+  width: 100%;
+}
+
+.coin-detail-info {
+  text-align: left;
+}
+
+@media(min-width:1000px) {
+  .main-coin-det {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+  }
+
+  .coin-detail {
+    width: 70%;
+    padding: 2em;
+  }
+
+  .coin-intro,
+  .coin-detail-top {
+    margin: .2em 0 1em 0;
+  }
+
+  .coin-intro {
+    border-bottom: none;
+    border-right: 2px solid whitesmoke;
+    padding: 0 1.5em 0 0;
+  }
+
+  .coin-detail-top {
+    gap: 2em;
+    justify-content: flex-start;
+  }
+
+  .coin-intro>p {
+    margin-top: .5em;
+  }
+}
